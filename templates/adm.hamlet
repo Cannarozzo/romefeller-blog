@@ -1,0 +1,55 @@
+<!-- ============== Main Content ============== -->
+<div id="wrapper" class="admin-area">
+    <div class="container">
+        <div class="row header">
+            <h2>Posts
+            <form class="col s12 m5">
+                <div class="row search">
+                    <div class="input-field col s8">
+                        <div class="search-wrapper card">
+                            <i class="material-icons">search
+                            <input type="search" id="search" placeholder="Pesquisar post">
+                    <div class="input-field col s4">
+                        <input type="submit" value="Pesquisar" class="btn yellow darken-2">
+                        
+        <div class="row">
+            <div class="col s12">
+                <table id=tbPostagem class="highlight">
+                    <thead>
+                        <tr>
+                            <th data-field="id">Título
+                            <th data-field="name">Data
+                            <th data-field="price">Ação  <!-- data-field com valor price?? -->
+                    <tbody>
+                    $if null entityPostagens
+                        <p>_{MsgSemPostagens}
+                    $else
+                        $forall Entity pid postagem <- entityPostagens                        
+                            <tr id=#{fromSqlKey pid}>
+                                <td>
+                                    <a href=@{PostagemR pid}> 
+                                        #{show $ postagemTitulo postagem}
+                                <td> 
+                                    $with (ano,mes,dia) <- toGregorian $ utctDay $ postagemData postagem
+                                        #{pack $ show dia}-#{pack $ show mes}-#{pack $ show ano}
+                                <td>
+                                    <button id=btnDeletarPostagem onclick=pegarPostagemId(#{show $ fromSqlKey pid}) > AjaxExcluir
+                                    <a href=@{DeletarPostagemR pid} class="delete" onclick="alert('Deseja mesmo excluir?');" >Excluir <!-- Incluir um modal, ajax, post --> 
+                                    <a href=@{AlterarPostagemR pid} class="alterar">Alterar
+ 
+<!-- ============== Floating Btn ============== -->
+<!--
+<div class="fixed-action-btn horizontal" style="bottom: 30px; right: 30px;">
+    <a class="btn-floating btn-large red waves-effect waves-light">
+        <i class="large material-icons">add
+    <ul>
+        <li>
+            <a href="#modal-upload" class="btn-floating yellow darken-2 tooltipped modal-trigger" data-position="top" data-delay="50" data-tooltip="Adicionar imagem">
+                <i class="material-icons">insert_photo
+        <li>
+            <a href=@{AdminGerenciarContasR} class="btn-floating green tooltipped" data-position="top" data-delay="50" data-tooltip="Adicionar admin">
+                <i class="material-icons">person_add
+        <li>
+            <a href=@{NovaPostagemR} class="btn-floating blue tooltipped" data-position="top" data-delay="50" data-tooltip="Adicionar post">
+                <i class="material-icons">create
+-->

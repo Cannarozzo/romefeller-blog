@@ -1,0 +1,49 @@
+name:              romefeller-blog
+version:           0.0.0
+cabal-version:     >= 1.8
+build-type:        Simple
+
+executable         romefeller-blog
+    hs-source-dirs: .
+    main-is:           main.hs
+
+    ghc-options:       -threaded -O2 -rtsopts -with-rtsopts=-N
+    
+    other-modules: CustomFields.Categoria
+                   
+                   
+    
+    extensions: TemplateHaskell
+                QuasiQuotes
+                OverloadedStrings
+                CPP
+                MultiParamTypeClasses
+                TypeFamilies
+                GADTs
+                GeneralizedNewtypeDeriving
+                FlexibleContexts
+                FlexibleInstances
+                EmptyDataDecls
+                NoMonomorphismRestriction
+                DeriveDataTypeable
+                ViewPatterns
+                TupleSections
+                RecordWildCards
+
+    build-depends: base
+                , yesod
+                , yesod-core
+                , yesod-static
+                , text                          
+                , persistent                    
+                , persistent-postgresql
+                , monad-logger
+                , time
+                , http-types
+                , shakespeare
+                , yesod-auth
+                , blaze-html
+                , http-conduit
+                , persistent-template
+                , mime-mail
+                , conduit

@@ -1,0 +1,47 @@
+<!-- ============== Featured Posts ============== -->
+<section id="featured-posts">
+    <div class="row">
+        $forall ( (Entity pid postagem), quantidadeCurtidas )  <- postagemCurtidasZip
+            <div class="featured-posts-grid col s12 m6 l3">
+                <article class="post post-thumb waves-effect">
+                    <a href=@{PostagemR pid} class="featured-post-preview">
+                        <img src=@{StaticR img_thumb_post_1_jpg} alt="Imagem do post que fala sobre o avanço tecnológico">
+                    <div class="featured-post-details">
+                        <h2>
+                            <a href=@{PostagemR pid}>#{show $ postagemTitulo postagem}
+                        <div class="featured-post-meta">
+                            <time datetime=#{ (showGregorian . utctDay) $ postagemData postagem} class="post-meta-date">
+                                <i class="material-icons left">access_time
+                                $with (ano,mes,dia) <- toGregorian $ utctDay $ postagemData postagem
+                                    #{show dia} #{show $ (converterMesParaLiteral mes) } #{show ano}
+                            <span class="post-meta-category">
+                                <a href="#!" class="category-tag truncate">Tecnologia
+                            
+
+<!-- ============== Main Content ============== -->
+<div class="container">
+    <div class="row">
+        <section class="popular-posts col s12 l9">
+            <div class="container-----">
+                <div class="row">
+            $if null postagens
+                    <p>_{MsgSemPostagens}
+            $else
+                $forall Entity postagemId postagem <- postagens
+                    <div class="col s12 m6 l4">
+                        <div class="card hoverable">
+                            <div class="card-image">
+                                <a href=@{PostagemR postagemId} class="img-wrapper">
+                                    <img class="responsive-img" src=@{StaticR img_treinamento_haskell_yesod_jpg} alt="Imagem do post que fala sobre... na Romefeller">
+                                    <span class="card-title">#{postagemTitulo postagem}
+                            <div class="card-content">
+                                $with (ano,mes,dia) <- toGregorian $ utctDay $ postagemData postagem
+                                    <span class="post-detail">#{show dia}-#{show mes}-#{show ano}
+                                    <div class="card-action right">
+                                        <a href=@{PostagemR postagemId}>Saiba mais
+               
+                  
+                                    
+<footer class="page-footer yellow darken-2 no-pad-top">
+    <div class="footer-copyright">
+        <div class="container">2016 Copyright © Romefeller

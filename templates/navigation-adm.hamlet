@@ -1,0 +1,25 @@
+<header class="navbar-fixed">
+    <nav class="yellow darken-2">
+        <div class="nav-wrapper">
+            <div class="row">
+                <div class="col s12">
+                    <a href=@{BlogR} class="brand-logo"><img src=@{StaticR img_romefeller_logo_svg} alt="Logo Romefeller">
+                    <a href="#" data-activates="slide-out" class="button-collapse">
+                        <i class="material-icons">menu
+                    <a href=@{AuthR LogoutR}>Sair   
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                        $maybe (Entity _ usuario) <- mauth
+                            #{usuarioEmail usuario }
+                            
+<!-- <div class="side-nav fixed" id="slide-out"> -->                 
+<div class="side-nav" id="slide-out">
+    <ul>
+        <li>
+            <a href=@{AdminR}>
+                <i class="material-icons left">dashboard
+                Dashboard
+        <li>
+            <a href=@{BlogR}>
+                <i class="material-icons left">home
+                Home

@@ -1,0 +1,13 @@
+<div class="fixed-action-btn horizontal" style="bottom: 30px; right: 30px;">
+    <a class="btn-floating btn-large red waves-effect waves-light">
+        <i class="large material-icons">add
+    <ul>
+        <li>
+            <a href="#modal-upload" class="btn-floating yellow darken-2 tooltipped modal-trigger" data-position="top" data-delay="50" data-tooltip="Adicionar imagem">
+                <i class="material-icons">insert_photo
+        <li>
+            <a href=@{AdminGerenciarContasR} class="btn-floating green tooltipped" data-position="top" data-delay="50" data-tooltip="Adicionar admin">
+                <i class="material-icons">person_add
+        <li>
+            <a href=@{NovaPostagemR} class="btn-floating blue tooltipped" data-position="top" data-delay="50" data-tooltip="Adicionar post">
+                <i class="material-icons">create

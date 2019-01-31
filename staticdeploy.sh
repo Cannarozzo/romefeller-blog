@@ -1,0 +1,1 @@
+scp -r static root@romefeller.io:/var/www/Romefeller/blog.romefeller.io/static/

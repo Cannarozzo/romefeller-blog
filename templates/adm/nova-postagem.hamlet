@@ -1,0 +1,64 @@
+<div id="wrapper" class="admin-area">
+    <section class="container">
+        <div class="row header">
+            <h2>Adicionar novo post
+        <div class="row">   
+            <form class="col s12" method=post action=@{NovaPostagemR}>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="hidden" name="visivel" value=True>
+                        
+                    <div class="input-field col s12">
+                        <input type="hidden" name="curtida" value=0>
+                        
+                <div class="col s12 l8">
+                    <div class="row">
+                        <div class="input-field input-title col s12">
+                            <label>Título
+                            <input type="text" name="titulo" required>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <a href="#modal-upload" class="btn waves-effect btn-add-img modal-trigger">
+                                <i class="material-icons left">insert_photo
+                                Adicionar Imagens
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label>Conteúdo
+                            <textarea name="conteudo" class="materialize-textarea" required>
+
+                <div class="col s12 l3 offset-l1 right-inputs">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <p>Categorias
+                            <p>
+                                <input type="radio" name="categoria" id="cat-programacao" value=#{show Programacao} class="filled-in" required/>
+                                <label for="cat-programacao">Programação
+                            <p>
+                                <input type="radio" name="categoria" id="cat-seguranca" value=#{show Seguranca} class="filled-in" />
+                                <label for="cat-seguranca">Segurança
+                            <p>
+                                <input type="radio" name="categoria" id="cat-tecnologia" value=#{show Tecnologia} class="filled-in" />
+                                <label for="cat-tecnologia">Tecnologia
+
+                    <div class="row">
+                        <div class="input-field submit-form col s12">
+                            <button class="btn waves-effect yellow darken-2" type="submit">
+                                Publicar
+                                <i class="material-icons right">send
+
+<!-- ============== Floating Btn ============== -->
+<div class="fixed-action-btn horizontal" style="bottom: 30px; right: 30px;">
+    <a class="btn-floating btn-large red waves-effect waves-light">
+        <i class="large material-icons">add
+    <ul>
+        <li>
+            <a href="#modal-upload" class="btn-floating yellow darken-2 tooltipped modal-trigger" data-position="top" data-delay="50" data-tooltip="Adicionar imagem">
+                <i class="material-icons">insert_photo
+        <li>
+            <a class="btn-floating green tooltipped" data-position="top" data-delay="50" data-tooltip="Adicionar admin">
+                <i class="material-icons">person_add
+        <li>
+            <a href=@{NovaPostagemR} class="btn-floating blue tooltipped" data-position="top" data-delay="50" data-tooltip="Adicionar post">
+                <i class="material-icons">create

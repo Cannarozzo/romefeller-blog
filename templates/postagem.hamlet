@@ -1,0 +1,107 @@
+<div class="post-page container">
+    <div class="row">
+    
+        <section class="post-blog col s12 l9">
+            <article class="single-post">
+                <header class="post-header" style="background-image: url('@{StaticR img_thumb_post_1_jpg}');">
+                    <div class="post-details">
+                        <h1> #{postagemTitulo postagem}
+                        <div class="post-meta">
+                            <time datetime=#{showGregorian $ utctDay $ postagemData postagem} class="post-meta-date">
+                                <i class="material-icons left">access_time
+                                #{dia} de #{show mesLiteral} de #{ano}
+                            <span class="post-meta-category">
+                                <a href="#!" class="category-tag truncate">#{show $ postagemCategoria postagem}
+                <div class="post-content">
+                    #{postagemConteudo postagem}
+                <div class="like-advisor">
+               
+                $maybe _ <- mauthIdResult
+                    $maybe (Entity _ _ ) <- mcurtidaResult
+                        <a id="btn-curtir" class="btn-floating disabled"  >
+                            <i class="material-icons">add 
+                        <label id="qtdCurtidas">
+                            #{show qtdCurtidas}
+                    $nothing
+                        <a id="btn-curtir" class="btn-floating" onclick=curtirPostagem(#{show $ fromSqlKey pid}) >
+                            <i class="material-icons">add
+                        <label id="qtdCurtidas">
+                            #{show qtdCurtidas}   
+                $nothing
+                    <a id="btn-curtir" class="btn-floating disabled" >
+                        <i class="material-icons">add
+                    <label id="qtdCurtidas">
+                            #{show qtdCurtidas}
+            <p>------------------------------------------------------------
+            
+            
+            <h4 class="section-title">Comentários
+            <div id=comentarios class="comments block block-white">
+                $forall (Entity comentarioId comentario, Entity _ usuario ) <- comentariosUsuariosEntity
+                    <div id=output#{fromSqlKey comentarioId} style=display:block; class="comment">
+                        <div class="comment-meta">
+                            <em class="comment-name">
+                                $maybe no <- (usuarioNome usuario)
+                                    #{no}
+                                $nothing
+                                    usuário sem nome
+                                                         
+                            <time class="comment-date">#{showGregorian $ utctDay $ comentarioData comentario}
+                        <span> #{comentarioConteudo comentario}
+                        $if (usuarioId == (comentarioUsuarioId comentario))
+                            <div class="comment-action">
+                                <a href="" onclick="mudaEstadoComentario('#{fromSqlKey comentarioId}'); return false" >Editar 
+                                <a href=@{RemoverComentarioR comentarioId (comentarioUsuarioId comentario) pid} onclick="alert('Deseja excluir o comentário?')" >Deletar
+                    $if (usuarioId == (comentarioUsuarioId comentario))
+                                <div style="display: none;">
+                                    <a href="" onclick="mudaEstadoComentario('#{fromSqlKey comentarioId}'); return false" >Editar 
+                                    <a href=@{RemoverComentarioR comentarioId (comentarioUsuarioId comentario) pid} onclick="alert('Deseja excluir o comentário?')" >Deletar
+                        <div id=input#{fromSqlKey comentarioId} class="att-comment-block" style=display:none >
+                            <form method=post action=@{EditarComentarioR comentarioId (comentarioUsuarioId comentario) pid } class="form-default">
+                                <div class="input-field">
+                                    <div class="comment-meta">
+                                        <em class="comment-name"> #{show $ usuarioNome usuario}
+                                        <time class="comment-date"> #{showGregorian $ utctDay $ comentarioData comentario}
+                                    <!--<label for="input-atualizar-comentario">Editar comentário-->
+                                    <textarea id="input-atualizar-comentario" class="materialize-textarea" name=conteudo>#{comentarioConteudo comentario}
+                                    <div class="comment-box-footer">
+                                        <a href="" onclick="mudaEstadoComentario('#{fromSqlKey comentarioId}'); return false" class="cancel-action">Cancelar
+                                        <input type=submit class="btn btn-default" value="Editar">
+                    $else
+                
+            $maybe usuarioId <- mauthIdResult      
+                <!--<h4 class="section-title">Adicionar um comentário-->
+                <form method=post action=@{AdicionarComentarioR pid} class="form-default">
+                    <div class="input-field">
+                        <textarea id="input-comentario" name=conteudo class="materialize-textarea" required>
+                        <label for="input-comentario">Adicione um comentário
+                        <div class="comment-box-footer">
+                            <input type=submit class="btn btn-default" value="Comentar" Comentario >
+            $nothing 
+                <p> Entre como usuário para adicionar um comentário
+                    
+        <aside class="sidebar col s12 l3">
+            <div class="row widgets">
+                <div class="col s12">
+                    <div class="widget-search">
+                        <h3>Pesquisar
+                        <input id="search" type="search" class="search" placeholder="Pesquisar...">
+                        <button href="" class="btn-search right">
+                            <i class="material-icons">search
+                <div class="col s12">
+                    <div class="monthly-posts">
+                        <h3>Categorias
+                        <ul>
+                            <li>
+                                <i class="material-icons left">chevron_right
+                                <a href="#">Programação
+                            <li>
+                                <i class="material-icons left">chevron_right
+                                <a href="#">Segurança
+                            <li>
+                                <i class="material-icons left">chevron_right
+                                <a href="#">Tecnologia
+                                    
+<footer class="page-footer yellow darken-2 no-pad-top">
+    <div class="footer-copyright">
+        <div class="container">2016 Copyright © Romefeller

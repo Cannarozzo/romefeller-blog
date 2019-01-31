@@ -1,0 +1,36 @@
+<div id="contato" class="modal">
+    <div class="modal-content">
+        <h4>Entre em contato
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input id="form-name" type="text" class="validate" required>
+                        <label class="active" for="form-name">Nome
+                    <div class="input-field col s12 m6">
+                        <input id="form-email" type="email" class="validate" required>
+                        <label class="active" for="form-email">Email
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="form-mensagem" class="materialize-textarea validate" required>
+                        <label for="form-mensagem">Mensagem
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button type="submit" class="btn yellow darken-2 waves-effect">Enviar
+
+<div id="modal-upload" class="modal">
+    <div class="modal-content">
+        <h4>Adicionar imagens
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>Selecionar
+                            <input type="file" multiple>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Selecione uma ou mais imagens">
+                    <div class="input-field col s12">
+                        <button type="submit" class="btn yellow darken-2 waves-effect right">
+                            <i class="material-icons left">cloud_upload
+                            Upload
